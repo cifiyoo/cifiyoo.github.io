@@ -3,7 +3,7 @@ layout: post
 title: 'Nasya Is Buying Lunch'
 date: 2019-04-10
 categories: ACM
-tags: 思维
+tags: 思维 CF
 ---
 ## 题目
 Codeforces Round #546(div2)
