@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Inscribed Figures'
+title: 'Ugly Pairs'
 date: 2019-05-06
 categories: ACM
 tags: 思维 CF
