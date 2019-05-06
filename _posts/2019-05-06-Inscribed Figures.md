@@ -8,6 +8,7 @@ tags: 思维 CF
 ## 题目
  
 Educational Codeforces Round 64 (Rated for Div. 2)
+
 The math faculty of Berland State University has suffered the sudden drop in the math skills of enrolling students. This year the highest grade on the entrance math test was 8. Out of 100! Thus, the decision was made to make the test easier.
 
 Future students will be asked just a single question. They are given a sequence of integer numbers a1,a2,…,an, each number is from 1 to 3 and ai≠ai+1 for each valid i. The i-th number represents a type of the i-th figure:
