@@ -6,7 +6,6 @@ categories: ACM
 tags: 思维 CF
 ---
 ## 题目
-
 Educational Codeforces Round 64 (Rated for Div. 2)
 
 You are given a string, consisting of lowercase Latin letters.

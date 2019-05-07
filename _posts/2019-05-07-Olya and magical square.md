@@ -6,7 +6,6 @@ categories: ACM
 tags: 思维 数学 CF
 ---
 ## 题目
-
 Codeforces Round #524 (Div. 2)
 
 Recently, Olya received a magical square with the size of 2n×2n.
