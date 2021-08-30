@@ -1,7 +1,7 @@
 # Site settings 配置站点
-title: 'HeH''s Blog'
+title: 'Cifiyoo''s Blog'
 description: '很高兴能在这里与你分享我对技术和生活的思考。'
-keyword: '贺文婷,HeH'
+keyword: '贺文婷,Cifiyoo'
 url: '' # your host
 
 # if you don't need baseurl, you should leave this value blank.
@@ -18,8 +18,8 @@ footer:
 
 # Author 配置博主信息
 author: '贺文婷'
-nickname: 'HeH'
-bio: '学生'
+nickname: 'Cifiyoo'
+bio: '农民工'
 avatar: '/assets/img/profile.jpg'
 
 # Search
