@@ -1,0 +1,81 @@
+layout: post
+title: '按权重随机选择'
+date: 2021-08-30
+categories: ACM
+tags: 堆
+
+## 按权重随机选择
+
+给定一个正整数数组 `w`，其中 `w[i]` 代表下标`i` 的权重（下标从 `0` 开始），请写一个函数 `pickIndex` ，它可以随机地获取下标`i`，选取下标 `i` 的概率与 `w[i]` 成正比。
+
+例如，对于 `w = [1, 3]`，挑选下标`0` 的概率为 `1 / (1 + 3) = 0.25` （即`25%`），而选取下标 `1` 的概率为 `3 / (1 + 3) = 0.75`（即`75%`）。
+
+也就是说，选取下标 `i `的概率为 `w[i] / sum(w) `。
+链接：https://leetcode-cn.com/problems/random-pick-with-weight
+
+## 样例
+
+```
+输入：
+["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]
+[[[1,3]],[],[],[],[],[]]
+输出：
+[null,1,1,1,1,0]
+解释：
+Solution solution = new Solution([1, 3]);
+solution.pickIndex(); // 返回 1，返回下标 1，返回该下标概率为 3/4 。
+solution.pickIndex(); // 返回 1
+solution.pickIndex(); // 返回 1
+solution.pickIndex(); // 返回 1
+solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/4 。
+
+由于这是一个随机问题，允许多个答案，因此下列输出都可以被认为是正确的:
+[null,1,1,1,1,0]
+[null,1,1,1,1,1]
+[null,1,1,1,0,0]
+[null,1,1,1,0,1]
+[null,1,0,1,0,0]
+......
+诸若此类。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/random-pick-with-weight
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+```
+
+## 题解
+
+```c++
+class Solution {
+public:
+    Solution(vector<int>& w) {
+        n = w.size();
+        dp[0] = w[0];
+        for(int i = 1; i < n; ++i) dp[i] = w[i] + dp[i - 1]; //此处求出前缀和
+    }
+    int dp[10010];
+    int n;
+    int pickIndex() {
+        return lower_bound(dp, dp + n, (random() % dp[n - 1]) + 1) - dp;//二分答案
+    }
+};
+```
+
+很有意思的一道题，目前遇到的最喜欢的一道题。题目大意：数组中权值为下标出现的概率，按照概率随机输出答案。举个例子：`w[1,1,2,3]`,前缀和`[1,2,4,7]`,则在`[1,2,3,4,5,6,7]`的序列中`1->[1]`,`1->[2]`,`2->[3,4]`,`3->[5,6,7]`。这样的分布满足概率要求，题目就演变成，随机输出一个数字，返回这个数字所对应的值的下标。那么用二分函数`lower_bound()`解决问题。
+
+**注** 
+
+在**从小到大**的排序数组中，
+
+`lower_bound( begin,end,num)`：从数组的`begin`位置到`end-1`位置二分查找**第一个大于或等于**`num`的数字，找到返回该数字的地址，不存在则返回`end`。通过返回的地址减去起始地址`begin`,得到找到数字在数组中的下标。
+
+`upper_bound( begin,end,num)`：从数组的`begin`位置到`end-1`位置二分查找**第一个大于**`num`的数字，找到返回该数字的地址，不存在则返回`end`。通过返回的地址减去起始地址`begin`,得到找到数字在数组中的下标。
+
+在**从大到小**的排序数组中，重载`lower_bound()`和`upper_bound()`
+
+`lower_bound( begin,end,num,greater<type>() )`:从数组的`begin`位置到`end-1`位置二分查找**第一个小于或等于**`num`的数字，找到返回该数字的地址，不存在则返回`end`。通过返回的地址减去起始地址`begin`,得到找到数字在数组中的下标。
+
+`upper_bound( begin,end,num,greater<type>() )`:从数组的`begin`位置到`end-1`位置二分查找第一个小于`num`的数字，找到返回该数字的地址，不存在则返回`end`。通过返回的地址减去起始地址`begin`,得到找到数字在数组中的下标。
+————————————————
+原文链接：https://blog.csdn.net/qq_40160605/article/details/80150252
+
