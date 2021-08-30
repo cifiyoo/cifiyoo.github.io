@@ -96,11 +96,10 @@
           <img src="{{ page.previous.cover }}" alt="">
           {% endif %}
       </div>
-      {% endif %}
-    </section>
-    {% if site.comments.disqus %}
+    {% endif %}
+    {% if site.valine_comment.enable %}
     <section class="post-footer-item comment">
-        <div id="disqus_thread"></div>
+        <div id="vcomments"></div>
     </section>
     {% endif %}
   </section>
@@ -142,6 +141,18 @@
   </script>
   {% endif %}
 
+     {% if site.valine_comment.enable %}
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script>
+      new Valine({
+          el: '#vcomments',
+          app_id: '{{ site.valine_comment.leancloud_appid }}',
+          app_key: '{{ site.valine_comment.leancloud_appkey }}',
+          placeholder:'{{ site.valine_comment.placeholder }}'
+      });</script>
+  {% endif %}
+    
   <script src="/assets/js/prism.js"></script>
   <script src="/assets/js/index.min.js"></script>
 </body>
