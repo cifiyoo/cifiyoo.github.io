@@ -33,6 +33,16 @@ comments:
   disqus: false
   disqus_url: 'https://liaokeyu.disqus.com/embed.js'
 
+valine_comment:
+  enable: true
+# app_id
+  leancloud_appid: dU2SsIdi8RXF16OehwBu0hGa-gzGzoHsz
+# app_key
+  leancloud_appkey: Hkd94HuoHIre1EEroFdDHORO
+# placeholde
+  placeholder: '说两句吧~'
+
+
 # MathJax 公式支持 by Ray-Eldath
 mathjax: true
 
